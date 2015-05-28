@@ -1,0 +1,12 @@
+include LICENSE
+include AUTHORS
+include HISTORY.rst
+include CONTRIBUTING.rst
+
+include README.rst
+
+recursive-include mips *
+recursive-include docs/build/html *
+recursive-include docs/source *
+
+exclude mips/dbsettings_production.py

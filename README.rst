@@ -1,1 +1,83 @@
-# django-mips
+
+django-mips
+===========
+
+A simple Django app to store and process mip data.
+
+
+Requirements
+------------
+
+1. Python 2.7
+2. Django 1.6-1.8
+
+::
+
+    pip install django
+
+
+3. Python-PostgreSQL Database Adapter
+
+::
+
+    pip install psycopg2
+
+
+Download as a package
+---------------------
+
+.. image:: https://pypip.in/v/django-mips/badge.png
+    :target: https://pypi.python.org/pypi/django-mips
+
+.. image:: https://pypip.in/d/django-mips/badge.png
+    :target: https://pypi.python.org/pypi/django-mips
+
+
+Download as a source code
+-------------------------
+
+::
+
+    $ git clone https://github.com/michal-stuglik/django-mips.git
+
+
+Download & Install with pip
+---------------------------
+
+Install with pip
+
+::
+
+    pip install django-mips
+
+
+Quick start: inside Django project
+----------------------------------
+
+1. Add "mips" to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = (
+        'mips',
+    )
+
+
+2. Include the polls URLconf in your project urls.py like this::
+
+    url(r'^mips/', include('mips.urls')),
+
+
+Quick start: outside Django project
+-----------------------------------
+
+
+1. Modify/set database connection details in mips.dbsettings_default.py
+2. ....
+
+
+
+Example
+-------
+
+1. How to manipulate mips data (tbd) ...
+
+
