@@ -9,33 +9,28 @@ try:
 except:
     pass
 
-# import os
-# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = dbsettings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = dbsettings.DEBUG
-TEMPLATE_DEBUG = dbsettings.TEMPLATE_DEBUG
 ALLOWED_HOSTS = dbsettings.ALLOWED_HOSTS
 
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    # 'django.contrib.messages',
 ]
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.contrib.messages.middleware.MessageMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 DATABASES = {
@@ -47,6 +42,3 @@ DATABASES = {
         'HOST': dbsettings.HOST
     }
 }
-
-
-
