@@ -9,4 +9,6 @@ recursive-include mips *
 recursive-include docs/build/html *
 recursive-include docs/source *
 
-exclude mips/dbsettings_production.py
+exclude mips/dbsettings_prod*
+recursive-exclude mips/migrations *
+
