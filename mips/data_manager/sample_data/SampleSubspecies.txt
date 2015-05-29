@@ -1,0 +1,186 @@
+Sample_ID	Subspecies
+1737	montandoni
+1738	montandoni
+2190	vulgaris
+3189	vulgaris
+3261	graecus
+3266	graecus
+3267	graecus
+3268	graecus
+3273	graecus
+3274	graecus
+3275	graecus
+3276	graecus
+3277	graecus
+3278	graecus
+3279	graecus
+3280	graecus
+3283	graecus
+3284	graecus
+3285	graecus
+3286	graecus
+5745	hybF2
+5746	hybF2
+5758	hybF2
+5764	hybF2
+3269	graecus
+3287	graecus
+3288	triturus sp.
+3289	triturus sp.
+3295	triturus sp.
+4036	graecus
+4037	graecus
+4038	graecus
+4039	graecus
+4040	graecus
+4041	graecus
+4042	graecus
+4043	graecus
+4044	graecus
+4045	graecus
+4046	graecus
+4047	graecus
+4048	graecus
+4049	graecus
+4050	graecus
+4051	graecus
+4052	graecus
+4053	graecus
+4056	graecus
+4057	graecus
+4059	graecus
+4060	graecus
+4061	graecus
+4062	graecus
+4063	graecus
+4064	graecus
+4065	graecus
+4066	graecus
+4067	graecus
+4068	graecus
+4069	graecus
+4070	graecus
+4071	graecus
+4072	graecus
+4073	graecus
+4074	graecus
+4452	triturus sp.
+4453	triturus sp.
+4454	triturus sp.
+4455	triturus sp.
+4456	triturus sp.
+4457	triturus sp.
+4458	triturus sp.
+4459	triturus sp.
+4460	triturus sp.
+4461	triturus sp.
+4462	triturus sp.
+4463	triturus sp.
+4464	triturus sp.
+4465	triturus sp.
+4466	triturus sp.
+5735	hybF1
+5736	hybF1
+5825	hybF2
+5826	hybF2
+5827	hybF2
+5828	hybF2
+5829	hybF2
+5830	hybF2
+5831	hybF2
+5832	hybF2
+5833	hybF2
+5834	hybF2
+5835	hybF2
+5836	hybF2
+5837	hybF2
+5838	hybF2
+5839	hybF2
+5840	hybF2
+5841	hybF2
+5842	hybF2
+5843	hybF2
+5844	hybF2
+5845	hybF2
+1739	montandoni
+1740	montandoni
+1741	montandoni
+1742	montandoni
+1743	montandoni
+1744	montandoni
+1745	montandoni
+1746	montandoni
+1747	montandoni
+1748	montandoni
+1857	montandoni
+1858	vulgaris
+2075	ampelensis
+2077	ampelensis
+2078	ampelensis
+2082	ampelensis
+2083	ampelensis
+2084	ampelensis
+2085	ampelensis
+2086	ampelensis
+2087	ampelensis
+2089	ampelensis
+2090	ampelensis
+2091	ampelensis
+2272	montandoni
+2273	vulgaris
+3394	vulgaris
+3397	vulgaris
+3399	vulgaris
+3400	vulgaris
+3403	vulgaris
+3404	vulgaris
+3405	vulgaris
+3408	vulgaris
+3409	vulgaris
+3410	vulgaris
+3411	vulgaris
+3412	vulgaris
+3438	graecus
+3439	graecus
+3440	graecus
+3441	graecus
+3442	graecus
+3445	graecus
+3446	graecus
+3447	graecus
+3448	graecus
+3449	graecus
+3451	graecus
+3452	graecus
+5306	lantzi
+5308	lantzi
+5309	lantzi
+5310	lantzi
+5311	lantzi
+5312	lantzi
+5313	lantzi
+5314	lantzi
+5316	lantzi
+5317	lantzi
+5318	lantzi
+5320	lantzi
+5705	hybF1
+5706	hybF1
+5737	hybF2
+5738	hybF2
+5739	hybF2
+5740	hybF2
+5747	hybF2
+5749	hybF2
+5751	hybF2
+5754	hybF2
+5760	hybF2
+5763	hybF2
+5789	hybF2
+5790	hybF2
+5791	hybF2
+5792	hybF2
+5793	hybF2
+5800	hybF2
+5805	hybF2
+5815	hybF2
