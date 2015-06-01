@@ -260,14 +260,18 @@ def load_paralogs(file_path):
             mip = Mip.objects.get(mip_id=mip_id_txt)
             subspecies = Subspecies.objects.get(subspecies=subspecies_txt)
 
-            # database writer
-            obj_to_save = Paralog(mip_fk=mip, subspecies_fk=subspecies,
-                                  mip_subspecies_paralog=mip_subspecies_paralog_txt)
+            obj, created = Paralog.objects.update_or_create(mip_fk=mip, subspecies_fk=subspecies,
+                                                            defaults={
+                                                            'mip_subspecies_paralog': mip_subspecies_paralog_txt})
+            #
+            # # database writer
+            # obj_to_save = Paralog(mip_fk=mip, subspecies_fk=subspecies,
+            #                       mip_subspecies_paralog=mip_subspecies_paralog_txt)
 
-            # TODO: uniqe safe entry???
+            # obj_to_save.save()
 
-            obj_to_save.save()
-            saved_row_counter += 1
+            if created:
+                saved_row_counter += 1
 
             if table_row_counter % 100 == 0:
                 print 'Importing paralogs #: {}'.format(table_row_counter)
