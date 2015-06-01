@@ -209,16 +209,17 @@ def load_samples(file_path):
             mip = Mip.objects.get(mip_id=mip_id_txt)
             sample = SampleSubspecies.objects.get(sample_id=sample_id_txt)
 
-            # TODO: uniqe safe entry???
-
             # mip & sample - a unique key
-            obj_to_save = Samples.objects.get_or_create(mip_fk=mip, sample_fk=sample)
+            obj, created = Samples.objects.update_or_create(mip_fk=mip, sample_fk=sample,
+                                                            defaults={'mip_sequence': sample_mip_seq,
+                                                                      'mip_performance': sample_mip_performance})
 
             # obj_to_save = Samples(mip_fk=mip, sample_fk=sample, mip_sequence=sample_mip_seq,
             #                       mip_performance=sample_mip_performance)
 
-            obj_to_save.save()
-            saved_row_counter += 1
+            # obj.save()
+            if created:
+                saved_row_counter += 1
 
             if table_row_counter % 100 == 0:
                 print 'Importing samples #: {}'.format(table_row_counter)
