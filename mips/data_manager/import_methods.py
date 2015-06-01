@@ -6,6 +6,8 @@ import os
 from datetime import date
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
+import django
+django.setup()
 
 from mips.models import Mip, Subspecies, SampleSubspecies, Samples, Paralog, Instance
 
@@ -207,10 +209,13 @@ def load_samples(file_path):
             mip = Mip.objects.get(mip_id=mip_id_txt)
             sample = SampleSubspecies.objects.get(sample_id=sample_id_txt)
 
-            obj_to_save = Samples(mip_fk=mip, sample_fk=sample, mip_sequence=sample_mip_seq,
-                                  mip_performance=sample_mip_performance)
-
             # TODO: uniqe safe entry???
+
+            # mip & sample - a unique key
+            obj_to_save = Samples.objects.get_or_create(mip_fk=mip, sample_fk=sample)
+
+            # obj_to_save = Samples(mip_fk=mip, sample_fk=sample, mip_sequence=sample_mip_seq,
+            #                       mip_performance=sample_mip_performance)
 
             obj_to_save.save()
             saved_row_counter += 1
@@ -250,6 +255,7 @@ def load_paralogs(file_path):
             subspecies_txt = row_as_list[1]
             mip_subspecies_paralog_txt = row_as_list[2]
 
+            # mip & subspecies - a unique key
             mip = Mip.objects.get(mip_id=mip_id_txt)
             subspecies = Subspecies.objects.get(subspecies=subspecies_txt)
 

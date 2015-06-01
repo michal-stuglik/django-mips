@@ -1,7 +1,13 @@
+""" Mip markers model. """
+
 from django.db import models
 
 
 class Mip(models.Model):
+    """
+    A class store info for Mip markers.
+    """
+
     mip_id = models.IntegerField(null=False, unique=True, primary_key=True)
     mip_sequence = models.TextField()
     mip_extension_arm = models.TextField()
@@ -20,7 +26,13 @@ class Mip(models.Model):
 
 
 class Instance(models.Model):
-    # id = models.AutoField(primary_key=True)
+    """
+    A class for storing Mip instances of each used Mip.
+    Designed Mip marker can be produced/bought many times
+    and this allows to keep track of it
+
+    Mip id, Mip pool & Mip instance makes a unique key
+    """
 
     mip_fk = models.ForeignKey(Mip, null=False)
     mip_pool = models.IntegerField(null=False)
@@ -35,6 +47,10 @@ class Instance(models.Model):
 
 
 class Subspecies(models.Model):
+    """
+    A class to store taxonomic info.
+    """
+
     subspecies = models.CharField(max_length=255, primary_key=True)
 
     def __unicode__(self):
@@ -42,6 +58,10 @@ class Subspecies(models.Model):
 
 
 class SampleSubspecies(models.Model):
+    """
+    A simple class to store taxonomic membership for each sample.
+    """
+
     sample_id = models.IntegerField(primary_key=True)
     subspecies_fk = models.ForeignKey(Subspecies)
 
@@ -50,10 +70,15 @@ class SampleSubspecies(models.Model):
 
 
 class Samples(models.Model):
-    id = models.AutoField(primary_key=True)
+    """
+    A class for storing Mip info for samples.
+
+    Mip (id) & sample (id) makes a unique key
+    """
 
     mip_fk = models.ForeignKey(Mip)
     sample_fk = models.ForeignKey(SampleSubspecies)
+
     mip_sequence = models.TextField()
     mip_performance = models.BooleanField(default=False)
 
@@ -62,7 +87,11 @@ class Samples(models.Model):
 
 
 class Paralog(models.Model):
-    id = models.AutoField(primary_key=True)
+    """
+    A class to store paralogy status of each marker within taxonomic group
+
+    Mip (id) & subspecies (id) makes a unique key
+    """
 
     mip_fk = models.ForeignKey(Mip)
     subspecies_fk = models.ForeignKey(Subspecies)
