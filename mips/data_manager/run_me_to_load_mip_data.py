@@ -1,4 +1,3 @@
-# import sys
 import os
 
 from mips.data_manager import import_methods
@@ -6,11 +5,14 @@ from mips.data_manager import import_methods
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 try:
-    #
+
+    # MIP data
     import_methods.load_mips(os.path.join(BASE_DIR, "data_manager/sample_data/MIP.txt"))
-    #
+
+    # taxonomic data
     import_methods.load_subspecies(os.path.join(BASE_DIR, "data_manager/sample_data/Subspecies.txt"))
 
+    # sample with taxonomic data
     import_methods.load_sample_subspecies(os.path.join(BASE_DIR, "data_manager/sample_data/SampleSubspecies.txt"))
 
     # MIP_sample data
@@ -24,4 +26,3 @@ try:
 
 except:
     raise
-
