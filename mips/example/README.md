@@ -2,13 +2,13 @@
 # Example
 
 
-info
-
+More features & examples can be found in Django project site:
 https://docs.djangoproject.com/en/1.8/ref/models/querysets/
 
 ## Requirements
 
-To play with django without manage.py in plain pyyhon shell
+To play with django without manage.py in plain python shell:
+
 1. set the DJANGO_SETTINGS_MODULE environment variable to "mips.settings"
 2. set up Django: django.setup()
     
@@ -31,7 +31,7 @@ django.setup()
 ## Select data from database
 
 
-### Select all Mip objects & print
+##### Select all Mip objects & print
 
 ```python
 def select_all_mip_objects():

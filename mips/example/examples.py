@@ -1,6 +1,6 @@
 """ Module with example methods to select and modify objects in MIP database.
 
-    To play with django without manage.py in plain pyyhon shell
+    To play with django without manage.py in plain python shell
     1. set the DJANGO_SETTINGS_MODULE environment variable to "mips.settings"
     2. set up Django: django.setup()
 """
