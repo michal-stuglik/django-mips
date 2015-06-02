@@ -83,8 +83,10 @@ class Samples(models.Model):
     mip_performance = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return "mip|sample: {}|{}".format(str(self.mip_fk), str(self.sample_fk))
+        return u"mip|sample: {}|{}".format(self.mip_fk, self.sample_fk)
 
+    # def __str__(self):
+    #     return "mip|sample: {}|{}".format(self.mip_fk, self.sample_fk)
 
 class Paralog(models.Model):
     """

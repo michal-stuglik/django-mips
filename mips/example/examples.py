@@ -32,9 +32,15 @@ def select_mips_from_reference_seq(reference_name):
         print mip
 
 
+def select_mips_for_sample(sample_id):
+    """Select and print all Mip objects for specific sample_id. """
 
+    for sam in Samples.objects.filter(sample_fk_id=sample_id):
+        print sam.mip_fk_id
 
 
 # select_all_mip_objects()
 
 # select_mips_from_reference_seq("c132510_g1_i1")
+
+# select_mips_for_sample('1737')
