@@ -9,5 +9,4 @@ HOST = 'xxx.xxx.xxx.xxx' # set host IP address
 SECRET_KEY = 'set-secret-key-here'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# TODO: check if this is necessary
 ALLOWED_HOSTS = []

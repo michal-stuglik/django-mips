@@ -1,7 +1,7 @@
 django-mips
 ===========
 
-A simple Django app to store and process mip markers data.
+A simple Django app to store and process Mip molecular markers.
 
 
 Prerequisites
@@ -64,8 +64,8 @@ Download as a source code
     $ git clone https://github.com/michal-stuglik/django-mips.git
 
 
-Download & Install with pip
----------------------------
+Download, install with pip (recommended)
+----------------------------------------
 
 Install with pip
 
@@ -74,33 +74,52 @@ Install with pip
     pip install django-mips
 
 
-Quick start: inside Django project
-----------------------------------
+Usage: outside Django project, within python scripts
+----------------------------------------------------
 
-1. Add "mips" to your INSTALLED_APPS setting like this::
+1. set database connection details in mips.dbsettings_default.py
+2. set the DJANGO_SETTINGS_MODULE environment variable to "mips.settings"
 
-    INSTALLED_APPS = (
-        'mips',
-    )
+::
 
-
-2. Include the polls URLconf in your project urls.py like this::
-
-    url(r'^mips/', include('mips.urls')),
+    import os
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
 
 
-Quick start: outside Django project
------------------------------------
+3. set up Django: django.setup()
+
+::
+
+    import django
+    django.setup()
 
 
-1. Modify/set database connection details in mips.dbsettings_default.py
-2. ....
+Examples
+--------
+
+`scripts & README <https://github.com/michal-stuglik/django-mips/tree/master/mips/example>`_
 
 
 
-Example
--------
+..
+    Quick start: inside Django project
+    ----------------------------------
 
-1. How to manipulate mips data (tbd) ...
+    1. Modify/set database connection details in mips.dbsettings_default.py
+    2. Add "mips" to your INSTALLED_APPS setting like this
+
+    ::
+
+        INSTALLED_APPS = (
+            'mips',
+        )
+
+
+    3. Include the polls URLconf in your project urls.py like this
+
+    ::
+
+        url(r'^mips/', include('mips.urls')),
+
 
 
