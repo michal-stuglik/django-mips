@@ -22,7 +22,7 @@ class Mip(models.Model):
     mip_comments = models.TextField(null=True)
 
     def __unicode__(self):
-        return str(self.mip_id)
+        return u'{}'.format(self.mip_id)
 
 
 class Instance(models.Model):
@@ -43,7 +43,7 @@ class Instance(models.Model):
     mip_instance = models.IntegerField(null=False)
 
     def __unicode__(self):
-        return "mip|mip_instance: {}|{}".format(str(self.mip_fk), str(self.mip_instance))
+        return u'mip|mip_instance: {}|{}'.format(self.mip_fk, self.mip_instance)
 
 
 class Subspecies(models.Model):
@@ -54,7 +54,7 @@ class Subspecies(models.Model):
     subspecies = models.CharField(max_length=255, primary_key=True)
 
     def __unicode__(self):
-        return self.subspecies
+        return u'{}'.format(self.subspecies)
 
 
 class SampleSubspecies(models.Model):
@@ -66,7 +66,7 @@ class SampleSubspecies(models.Model):
     subspecies_fk = models.ForeignKey(Subspecies)
 
     def __unicode__(self):
-        return self.sample_id
+        return u'{}'.format(self.sample_id)
 
 
 class Samples(models.Model):
@@ -83,10 +83,8 @@ class Samples(models.Model):
     mip_performance = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return u"mip|sample: {}|{}".format(self.mip_fk, self.sample_fk)
+        return u'mip|sample: {}|{}'.format(self.mip_fk, self.sample_fk)
 
-    # def __str__(self):
-    #     return "mip|sample: {}|{}".format(self.mip_fk, self.sample_fk)
 
 class Paralog(models.Model):
     """
@@ -100,5 +98,5 @@ class Paralog(models.Model):
     mip_subspecies_paralog = models.CharField(max_length=50)
 
     def __unicode__(self):
-        return "mip|subspecies|paralog: {}|{}|{}".format(str(self.mip_fk), str(self.subspecies_fk),
-                                                         self.mip_subspecies_paralog)
+        return u'mip|subspecies|paralog: {}|{}|{}'.format(self.mip_fk, self.subspecies_fk,
+                                                          self.mip_subspecies_paralog)

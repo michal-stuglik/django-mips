@@ -32,7 +32,7 @@ Requirements
 ------------
 
 1. Python 2.7
-2. Django 1.6-1.8
+2. Django 1.7-1.8
 
 ::
 
