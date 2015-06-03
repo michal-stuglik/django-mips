@@ -1,7 +1,31 @@
 django-mips
 ===========
 
-A simple Django app to store and process mip data.
+A simple Django app to store and process mip markers data.
+
+
+Prerequisites
+-------------
+
+pip & virtualenv (optional)
+
+Linux (Ubuntu/Debian)
+
+::
+
+    sudo apt-get install python-pip python-dev build-essential
+    sudo pip install --upgrade pip
+    sudo pip install --upgrade virtualenv
+
+Windows
+
+    With Python 2.7.10 version, pip is a part of the Python for Windows installer;
+    alternatively pip can be downloaded with this script: `get-pip.py <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_,
+    and installed by running in console
+
+::
+
+    C:\> python get-pip.py
 
 
 Requirements
@@ -26,10 +50,10 @@ Download as a package
 ---------------------
 
 .. image:: https://pypip.in/v/django-mips/badge.png
-    :target: https://pypi.python.org/pypi/django-mips
+:target: https://pypi.python.org/pypi/django-mips
 
 .. image:: https://pypip.in/d/django-mips/badge.png
-    :target: https://pypi.python.org/pypi/django-mips
+:target: https://pypi.python.org/pypi/django-mips
 
 
 Download as a source code
