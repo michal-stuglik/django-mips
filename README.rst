@@ -45,6 +45,9 @@ Requirements
 
     pip install psycopg2
 
+    windows
+    http://stickpeople.com/projects/python/win-psycopg/
+
 
 Download as a package
 ---------------------
