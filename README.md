@@ -11,7 +11,7 @@ Prerequisites
 
 Linux
        
-    you already have it :)
+    probably, you already have it!
     
 Windows
 
@@ -29,8 +29,7 @@ Windows
 
     With Python 2.7.10 version, pip is a part of the Python for Windows installer.
 
-Windows alternatively:
-    Pip can be downloaded with this script: [get-pip.py], and installed by running in console:
+Windows alternatively: pip can be downloaded with this script: [get-pip.py], and installed by running in console:
 
     C:\> python get-pip.py
 
@@ -56,7 +55,7 @@ Windows
      pip install git+https://github.com/nwcell/psycopg2-windows.git@win32-py27#egg=psycopg2
      
      
-Windows alternatively (download & install -  e.g. [psycopg2])
+Windows alternatively: download & install from win-psycopg project site -  e.g. [psycopg2]
           
      http://stickpeople.com/projects/python/win-psycopg/
      
@@ -85,7 +84,7 @@ Install with pip
 Setup
 -----
 
-#### outside Django project, within python scripts
+#### outside Django project, in python scripts:
 
 
 *   set database connection details in mips.dbsettings\_default.py
