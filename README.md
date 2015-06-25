@@ -64,7 +64,8 @@ Windows alternatively: download & install from win-psycopg project site -  e.g. 
 Download
 --------
 
-#### package [![PyPI version](https://badge.fury.io/py/django-mips.svg)](http://badge.fury.io/py/django-mips)
+#### package 
+[![PyPI version](https://badge.fury.io/py/django-mips.svg)](http://badge.fury.io/py/django-mips)
 [![Code Health](https://landscape.io/github/michal-stuglik/django-mips/master/landscape.svg?style=flat)](https://landscape.io/github/michal-stuglik/django-mips/master)
 
     https://pypi.python.org/pypi/django-mips
