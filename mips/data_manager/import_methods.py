@@ -4,7 +4,6 @@ Modules with functions for manipulating data in database
 
 import os
 from datetime import date
-import sys
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
 import django
@@ -40,7 +39,6 @@ class CountObjects(object):
         self.obj_row_counter = 0
         self.method_name = method_name
 
-    @staticmethod
     def final_print(self):
         """Final method print. """
 
