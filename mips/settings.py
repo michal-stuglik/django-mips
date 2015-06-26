@@ -6,7 +6,8 @@ import dbsettings_default as dbsettings
 # for production use!
 try:
     import dbsettings_production as dbsettings
-except:
+except ImportError as ie:
+    print "No production setting, load defaults"
     pass
 
 # SECURITY WARNING: keep the secret key used in production secret!
