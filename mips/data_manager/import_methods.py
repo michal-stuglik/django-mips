@@ -33,12 +33,21 @@ instance_input_schema = ['MIP_ID', 'MIP_pool', 'MIP_production_date', 'MIP_produ
                          'MIP_instance']
 
 
-def final_print(method_name, obj_row_counter, table_row_counter, saved_row_counter):
-    """Final method print. """
+class CountObjects(object):
+    def __init__(self, method_name):
+        self.table_row_counter = 0
+        self.saved_row_counter = 0
+        self.obj_row_counter = 0
+        self.method_name = method_name
 
-    print 'Function {} objects/imported/updated: {}/{}/{} rows into database'.format(method_name, obj_row_counter,
-                                                                                     saved_row_counter,
-                                                                                     table_row_counter)
+    @staticmethod
+    def final_print(self):
+        """Final method print. """
+
+        print 'Function {} objects/imported/updated: {}/{}/{} rows into database'.format(self.method_name,
+                                                                                         self.obj_row_counter,
+                                                                                         self.saved_row_counter,
+                                                                                         self.table_row_counter)
 
 
 def load_mips(file_path):
@@ -49,9 +58,7 @@ def load_mips(file_path):
     header_read = False
     with open(file_path, 'r') as f:
 
-        table_row_counter = 0
-        saved_row_counter = 0
-        obj_row_counter = 0
+        co = CountObjects(load_mips.__name__)
 
         for line in f:
 
@@ -67,7 +74,7 @@ def load_mips(file_path):
                 continue
 
             # all data rows counter
-            table_row_counter += 1
+            co.table_row_counter += 1
 
             mip_id = row_as_list[0]
             mip_sequence = row_as_list[1]
@@ -98,15 +105,15 @@ def load_mips(file_path):
                                                         )
 
             if obj:
-                obj_row_counter += 1
+                co.obj_row_counter += 1
 
             if created:
-                saved_row_counter += 1
+                co.saved_row_counter += 1
 
-            if table_row_counter % 100 == 0:
-                print 'Importing paralogs #: {}'.format(table_row_counter)
+            if co.table_row_counter % 100 == 0:
+                print 'Importing paralogs #: {}'.format(co.table_row_counter)
 
-    final_print(sys._getframe().f_code.co_name, obj_row_counter, table_row_counter, saved_row_counter)
+        co.final_print()
 
 
 def load_subspecies(file_path):
@@ -115,9 +122,7 @@ def load_subspecies(file_path):
     header_read = False
     with open(file_path, 'r') as f:
 
-        table_row_counter = 0
-        saved_row_counter = 0
-        obj_row_counter = 0
+        co = CountObjects(load_subspecies.__name__)
 
         for line in f:
 
@@ -133,7 +138,7 @@ def load_subspecies(file_path):
                 continue
 
             # all data rows counter
-            table_row_counter += 1
+            co.table_row_counter += 1
 
             subspecies = row_as_list[0]
 
@@ -141,15 +146,15 @@ def load_subspecies(file_path):
             obj, created = Subspecies.objects.update_or_create(subspecies=subspecies)
 
             if obj:
-                obj_row_counter += 1
+                co.obj_row_counter += 1
 
             if created:
-                saved_row_counter += 1
+                co.saved_row_counter += 1
 
-            if table_row_counter % 100 == 0:
-                print 'Importing paralogs #: {}'.format(table_row_counter)
+            if co.table_row_counter % 100 == 0:
+                print 'Importing paralogs #: {}'.format(co.table_row_counter)
 
-    final_print(sys._getframe().f_code.co_name, obj_row_counter, table_row_counter, saved_row_counter)
+        co.final_print()
 
 
 def load_sample_subspecies(file_path):
@@ -158,9 +163,7 @@ def load_sample_subspecies(file_path):
     header_read = False
     with open(file_path, 'r') as f:
 
-        table_row_counter = 0
-        saved_row_counter = 0
-        obj_row_counter = 0
+        co = CountObjects(load_sample_subspecies.__name__)
 
         for line in f:
 
@@ -176,7 +179,7 @@ def load_sample_subspecies(file_path):
                 continue
 
             # all data rows counter
-            table_row_counter += 1
+            co.table_row_counter += 1
 
             sample_id = row_as_list[0]
             subspecies_txt = row_as_list[1]
@@ -186,15 +189,15 @@ def load_sample_subspecies(file_path):
             obj, created = SampleSubspecies.objects.update_or_create(sample_id=sample_id,
                                                                      defaults={'subspecies_fk': subspecies})
             if obj:
-                obj_row_counter += 1
+                co.obj_row_counter += 1
 
             if created:
-                saved_row_counter += 1
+                co.saved_row_counter += 1
 
-            if table_row_counter % 100 == 0:
-                print 'Importing paralogs #: {}'.format(table_row_counter)
+            if co.table_row_counter % 100 == 0:
+                print 'Importing paralogs #: {}'.format(co.table_row_counter)
 
-    final_print(sys._getframe().f_code.co_name, obj_row_counter, table_row_counter, saved_row_counter)
+        co.final_print()
 
 
 def load_samples(file_path):
@@ -203,9 +206,7 @@ def load_samples(file_path):
     header_read = False
     with open(file_path, 'r') as f:
 
-        table_row_counter = 0
-        saved_row_counter = 0
-        obj_row_counter = 0
+        co = CountObjects(load_samples.__name__)
 
         for line in f:
 
@@ -221,7 +222,7 @@ def load_samples(file_path):
                 continue
 
             # all data rows counter
-            table_row_counter += 1
+            co.table_row_counter += 1
 
             mip_id_txt = row_as_list[0]
             sample_id_txt = row_as_list[1]
@@ -238,15 +239,15 @@ def load_samples(file_path):
                                                                       'mip_performance': sample_mip_performance})
 
             if obj:
-                obj_row_counter += 1
+                co.obj_row_counter += 1
 
             if created:
-                saved_row_counter += 1
+                co.saved_row_counter += 1
 
-            if table_row_counter % 100 == 0:
-                print 'Importing paralogs #: {}'.format(table_row_counter)
+            if co.table_row_counter % 100 == 0:
+                print 'Importing paralogs #: {}'.format(co.table_row_counter)
 
-    final_print(sys._getframe().f_code.co_name, obj_row_counter, table_row_counter, saved_row_counter)
+        co.final_print()
 
 
 def load_paralogs(file_path):
@@ -255,9 +256,7 @@ def load_paralogs(file_path):
     header_read = False
     with open(file_path, 'r') as f:
 
-        table_row_counter = 0
-        saved_row_counter = 0
-        obj_row_counter = 0
+        co = CountObjects(load_paralogs.__name__)
 
         for line in f:
 
@@ -273,7 +272,7 @@ def load_paralogs(file_path):
                 continue
 
             # all data rows counter
-            table_row_counter += 1
+            co.table_row_counter += 1
 
             mip_id_txt = row_as_list[0]
             subspecies_txt = row_as_list[1]
@@ -287,15 +286,15 @@ def load_paralogs(file_path):
                                                             defaults={
                                                                 'mip_subspecies_paralog': mip_subspecies_paralog_txt})
             if obj:
-                obj_row_counter += 1
+                co.obj_row_counter += 1
 
             if created:
-                saved_row_counter += 1
+                co.saved_row_counter += 1
 
-            if table_row_counter % 100 == 0:
-                print 'Importing paralogs #: {}'.format(table_row_counter)
+            if co.table_row_counter % 100 == 0:
+                print 'Importing paralogs #: {}'.format(co.table_row_counter)
 
-    final_print(sys._getframe().f_code.co_name, obj_row_counter, table_row_counter, saved_row_counter)
+        co.final_print()
 
 
 def load_mip_instances(file_path):
@@ -304,9 +303,7 @@ def load_mip_instances(file_path):
     header_read = False
     with open(file_path, 'r') as f:
 
-        table_row_counter = 0
-        saved_row_counter = 0
-        obj_row_counter = 0
+        co = CountObjects(load_mip_instances.__name__)
 
         for line in f:
 
@@ -322,7 +319,7 @@ def load_mip_instances(file_path):
                 continue
 
             # all data rows counter
-            table_row_counter += 1
+            co.table_row_counter += 1
 
             mip_id_txt = row_as_list[0]
             mip_pool_txt = row_as_list[1]
@@ -345,12 +342,12 @@ def load_mip_instances(file_path):
                                                                        'mip_plate': mip_plate_txt,
                                                                        'mip_position': mip_position_txt})
             if obj:
-                obj_row_counter += 1
+                co.obj_row_counter += 1
 
             if created:
-                saved_row_counter += 1
+                co.saved_row_counter += 1
 
-            if table_row_counter % 100 == 0:
-                print 'Importing paralogs #: {}'.format(table_row_counter)
+            if co.table_row_counter % 100 == 0:
+                print 'Importing paralogs #: {}'.format(co.table_row_counter)
 
-    final_print(sys._getframe().f_code.co_name, obj_row_counter, table_row_counter, saved_row_counter)
+        co.final_print()
