@@ -16,6 +16,7 @@ Linux
 Windows
 
     download & install: https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi
+	remember to select "Add python.exe to Path"
     
 ####   pip & virtualenv (optional)
 
@@ -81,6 +82,7 @@ Download
 Install with pip
 
     pip install django-mips
+	you will find mips folder in your Python directory 
 
 
 Setup
