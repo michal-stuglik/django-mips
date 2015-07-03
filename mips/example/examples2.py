@@ -11,7 +11,8 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
 django.setup()
 
 # import proper classes to play with
-from mips.models import Mip, Subspecies, SampleSubspecies, Samples, Paralog, Instance
+# from mips.models import Mip, Subspecies, SampleSubspecies, Samples, Paralog, Instance
+from mips.models import Mip, SampleSubspecies, Samples, Paralog, Instance
 
 
 
@@ -24,7 +25,7 @@ sample_list = ["1737","1738","1739","1740","1741","1742","1743"]
 
 
 
-	
+
 
 # How many mips are in a particular reference transcript?
 #print Mip.objects.filter(reference_id=reference_name).count()
@@ -46,11 +47,11 @@ def select_mips_for_reference(reference):
 def check_mips_for_reference_list(lista):
 
     for ref in lista:
-            if Mip.objects.filter(reference_id=ref).exists():
-                mapping_mips = [mip.mip_func_mapping for mip in Mip.objects.filter(reference_id=ref)].count(True)
-                print ref, Mip.objects.filter(reference_id=ref).count(), mapping_mips
-            else:
-                print ref, 'no mip'
+        if Mip.objects.filter(reference_id=ref).exists():
+            mapping_mips = [mip.mip_func_mapping for mip in Mip.objects.filter(reference_id=ref)].count(True)
+            print ref, Mip.objects.filter(reference_id=ref).count(), mapping_mips
+        else:
+            print ref, 'no mip'
 
 #check_mips_for_reference_list(reference_list)
 
@@ -62,9 +63,9 @@ def check_mips_for_reference_list(lista):
 def mips_for_reference_list(lista):
 
     for ref in lista:
-            for mip in Mip.objects.filter(reference_id=ref):
-                print ref, mip.mip_id, ['immuno' if mip.mip_func_immuno else '-'][0], ['mapping' if mip.mip_func_mapping else '-'][0], \
-                    ['random' if mip.mip_func_random else '-'][0], ['utr' if mip.mip_func_utr else '-'][0]
+        for mip in Mip.objects.filter(reference_id=ref):
+            print ref, mip.mip_id, ['immuno' if mip.mip_func_immuno else '-'][0], ['mapping' if mip.mip_func_mapping else '-'][0], \
+                ['random' if mip.mip_func_random else '-'][0], ['utr' if mip.mip_func_utr else '-'][0]
 
 #mips_for_reference_list(reference_list)
 
@@ -75,9 +76,9 @@ def mips_for_reference_list(lista):
 def samples_for_mips(lista):
 
     for ref in lista:
-            for mip in Mip.objects.filter(reference_id=ref):
-                for sample in Samples.objects.filter(mip_fk=mip):
-                    print ref, mip, sample.sample_fk, sample.mip_performance
+        for mip in Mip.objects.filter(reference_id=ref):
+            for sample in Samples.objects.filter(mip_fk=mip):
+                print ref, mip, sample.sample_fk, sample.mip_performance
 
 #samples_for_mips(reference_list)
 
@@ -88,9 +89,9 @@ def samples_for_mips(lista):
 def count_samples_for_mips(lista):
 
     for ref in lista:
-            for mip in Mip.objects.filter(reference_id=ref):
-                samp = Samples.objects.filter(mip_fk=mip).count()
-                print ref, mip, samp
+        for mip in Mip.objects.filter(reference_id=ref):
+            samp = Samples.objects.filter(mip_fk=mip).count()
+            print ref, mip, samp
 
 #count_samples_for_mips(reference_list)
 
@@ -125,7 +126,6 @@ def all_mips_paralogs():
 def all_mips_for_species():
 
     for montandoni_samples in SampleSubspecies.objects.filter(subspecies_fk="montandoni"):
-
         for mip in Samples.objects.filter(sample_fk=montandoni_samples.sample_id):
             print mip.mip_fk, mip.sample_fk
 
@@ -152,7 +152,7 @@ def func_mips_for_montandoni():
 
     for montandoni_samples in SampleSubspecies.objects.filter(subspecies_fk="montandoni"):
         for Sample_mip in Samples.objects.filter(sample_fk=montandoni_samples.sample_id):
-            if Sample_mip.mip_fk.mip_func_mapping == True:
+            if Sample_mip.mip_fk.mip_func_mapping is True:
                 print Sample_mip.mip_fk.mip_id
 
 #func_mips_for_montandoni()
@@ -208,14 +208,14 @@ def instance_for_mip(lista):
 # For a list of mips print producer and production date and write it to a file
 
 wh = open('output.tab','w')
-def instance_for_mip(lista):
+def instance_for_mip_and_write(lista):
 
     for mip in lista:
         for mip_inst in Instance.objects.filter(mip_fk=mip):
             output = str(mip_inst.mip_fk) +'\t'+ str(mip_inst.mip_production_data) +'\t'+ str(mip_inst.mip_producer)+'\n'
             wh.write(output)
 
-instance_for_mip(mip_list)
+instance_for_mip_and_write(mip_list)
 
 wh.flush()
 wh.close()
