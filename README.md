@@ -1,7 +1,10 @@
 django-mips
 ===========
 
-A simple Django app to store and process Mip molecular markers.
+
+A simple API (build on top of the Django Model API) to store and manage MIP (molecular inversion probe) markers. 
+Detailed description about markers e.g in [Science 338, 1619 (2012)].
+
 
 
 Prerequisites
@@ -116,3 +119,4 @@ Examples
   [psycopg2]: http://stickpeople.com/projects/python/win-psycopg/2.6.0/psycopg2-2.6.0.win32-py2.7-pg9.4.1-release.exe
   [pythonwin]: https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi
   [django-mips]: https://pypi.python.org/pypi/django-mips
+  [Science 338, 1619 (2012)]: http://www.sciencemag.org/content/338/6114/1619
