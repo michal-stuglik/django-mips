@@ -3,7 +3,7 @@ django-mips
 
 
 A simple API (build on top of the Django Model API) to store and manage MIP (molecular inversion probe) markers. 
-Detailed description about markers e.g in [Science 338, 1619 (2012)].
+Detailed markers description e.g in [Science 338, 1619 (2012)].
 
 
 
