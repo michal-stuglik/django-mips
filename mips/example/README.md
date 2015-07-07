@@ -63,7 +63,7 @@ def select_mips_for_reference(reference):
     for mip in Mip.objects.filter(reference_id=reference):
         print mip, mip.mip_sequence
 
-#select_mips_for_reference("c132510_g1_i1")
+select_mips_for_reference("c132510_g1_i1")
 ```
 
 ##### For a list of references, check if they have a mip, how many, and how many mapping mips there are
