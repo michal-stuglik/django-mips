@@ -37,6 +37,48 @@ You can find a scheme of all classes and their structure in *diagram.jpg* and *m
 
 ## Import/update into database
 
+To upload data into database
+
+* prepare data in txt files as in mips/data_manager/sample_data
+
+* run *run_me_to_load_mip_data.py*
+
+```python
+import os
+
+from mips.data_manager import import_methods
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+try:
+
+    # MIP data
+    import_methods.load_mips(os.path.join(BASE_DIR, "data_manager/sample_data/MIP.txt"))
+
+    # taxonomic data
+    import_methods.load_subspecies(os.path.join(BASE_DIR, "data_manager/sample_data/Subspecies.txt"))
+
+    # sample with taxonomic data
+    import_methods.load_sample_subspecies(os.path.join(BASE_DIR, "data_manager/sample_data/SampleSubspecies.txt"))
+
+    # MIP_sample data
+    import_methods.load_samples(os.path.join(BASE_DIR, "data_manager/sample_data/MIP_samples.txt"))
+
+    # MIP_paralogs data
+    import_methods.load_paralogs(os.path.join(BASE_DIR, "data_manager/sample_data/MIP_paralogs.txt"))
+
+    # MIP_instance data
+    import_methods.load_mip_instances(os.path.join(BASE_DIR, "data_manager/sample_data/MIP_instance.txt"))
+
+except:
+    raise
+```
+
+**Remember that txt files have to be loaded in the the given order!**
+
+**Be careful not to overwrite the existing data in the database!**
+
+
 
 ## Select data from database
 
