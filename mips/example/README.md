@@ -32,7 +32,7 @@ from mips.models import Mip, Subspecies, SampleSubspecies, Samples, Paralog, Ins
 ```
 
 You can find a scheme of all classes and their structure in *diagram.jpg* and *models.py*
-
+![](./mips/example/diagram.jpg)
 
 ## Import/update into database
 
