@@ -2,6 +2,8 @@ include LICENSE
 include AUTHORS
 include HISTORY.rst
 include CONTRIBUTING.rst
+include manage.py
+include requirements.txt
 
 include README.rst
 

@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     # 'django.contrib.contenttypes',
     # 'django.contrib.sessions',
     # 'django.contrib.messages',
+    'django_nose',
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -43,3 +44,5 @@ DATABASES = {
         'HOST': dbsettings.HOST
     }
 }
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'

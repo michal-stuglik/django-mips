@@ -1,2 +1,4 @@
 django >= 1.7
 psycopg2
+nose
+django-nose
