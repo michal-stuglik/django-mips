@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     # 'django.contrib.sessions',
     # 'django.contrib.messages',
     'django_nose',
+    'coverage',
 ]
 
 MIDDLEWARE_CLASSES = (
