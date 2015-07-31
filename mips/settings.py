@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     # 'django.contrib.contenttypes',
     # 'django.contrib.sessions',
     # 'django.contrib.messages',
+    'mips',
     'django_nose',
     'coverage',
 ]
