@@ -1,13 +1,18 @@
 from django.test import TestCase
 from models import Mip
 
+import os
+import django
 
-# Create your tests here.
+# set the DJANGO_SETTINGS_MODULE environment variable to "mips.settings"
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
+
+# setup
+django.setup()
 
 
 # models test
 class MipTestCase(TestCase):
-
     def setUp(self):
         o = Mip.objects.create(mip_id=1, mip_start=1, mip_stop=2)
         o.save()
