@@ -1,12 +1,3 @@
-import os
-import django
-
-# set the DJANGO_SETTINGS_MODULE environment variable to "mips.settings"
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
-
-# setup
-django.setup()
-
 from django.test import TestCase
 from models import Mip
 
