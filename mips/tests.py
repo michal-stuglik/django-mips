@@ -1,6 +1,3 @@
-from django.test import TestCase
-from models import Mip
-
 import os
 import django
 
@@ -9,6 +6,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
 
 # setup
 django.setup()
+
+from django.test import TestCase
+from models import Mip
 
 
 # models test
