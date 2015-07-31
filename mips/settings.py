@@ -36,14 +36,15 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': dbsettings.DBNAME,
-        'USER': dbsettings.USER,
-        'PASSWORD': dbsettings.PASSWORD,
-        'HOST': dbsettings.HOST
-    }
-}
+DATABASES = dbsettings.DATABASES
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': dbsettings.DBNAME,
+#         'USER': dbsettings.USER,
+#         'PASSWORD': dbsettings.PASSWORD,
+#         'HOST': dbsettings.HOST
+#     }
+# }
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'

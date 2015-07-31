@@ -10,3 +10,14 @@ SECRET_KEY = ''  # set-secret-key-here
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = []
+
+import os
+
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_DIR, 'mips.db'),
+    }
+}
