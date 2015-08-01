@@ -9,6 +9,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
 django.setup()
 
 from django.test import TestCase
+from model_mommy import mommy
 from models import Mip, Instance, Subspecies, SampleSubspecies, Samples, Paralog
 
 
@@ -22,6 +23,13 @@ class MipTest(TestCase):
         self.assertEqual(mip1.__unicode__(), u'1')
 
 
+class MipTestMommy(TestCase):
+    def test_unicode(self):
+        mip1 = mommy.make(Mip)
+        self.assertTrue(isinstance(mip1, Mip))
+        self.assertEqual(mip1.__unicode__(), u'%s' % mip1.mip_id)
+
+
 class InstanceTest(TestCase):
     def setUp(self):
         m = Mip.objects.create(mip_id=1, mip_start=1, mip_stop=2)
@@ -31,6 +39,13 @@ class InstanceTest(TestCase):
         m = Mip.objects.get(mip_id=1)
         o = Instance.objects.get(mip_fk=m, mip_instance=1)
         self.assertEqual(o.__unicode__(), u'mip|mip_instance: 1|1')
+
+
+class InstanceTestMommy(TestCase):
+    def test_unicode(self):
+        o = mommy.make(Instance)
+        self.assertTrue(isinstance(o, Instance))
+        self.assertEqual(o.__unicode__(), u'mip|mip_instance: {}|{}'.format(o.mip_fk.mip_id, o.mip_instance))
 
 
 class SubspeciesTest(TestCase):
@@ -43,6 +58,13 @@ class SubspeciesTest(TestCase):
         self.assertEqual(o.__unicode__(), u'LV')
 
 
+class SubspeciesTestMommy(TestCase):
+    def test_unicode(self):
+        o = mommy.make(Subspecies)
+        self.assertTrue(isinstance(o, Subspecies))
+        self.assertEqual(o.__unicode__(), u'{}'.format(o.subspecies))
+
+
 class SampleSubspeciesTest(TestCase):
     def setUp(self):
         o = Subspecies.objects.create(subspecies='LV')
@@ -52,6 +74,13 @@ class SampleSubspeciesTest(TestCase):
         sub = SampleSubspecies.objects.get(sample_id=1)
         self.assertTrue(isinstance(sub, SampleSubspecies))
         self.assertEqual(sub.__unicode__(), u'1')
+
+
+class SampleSubspeciesMommy(TestCase):
+    def test_unicode(self):
+        sub = mommy.make(SampleSubspecies)
+        self.assertTrue(isinstance(sub, SampleSubspecies))
+        self.assertEqual(sub.__unicode__(), u'{}'.format(sub.sample_id))
 
 
 class SamplesTest(TestCase):
@@ -67,6 +96,13 @@ class SamplesTest(TestCase):
         self.assertEquals(o.__unicode__(), u'mip|sample: 1|1')
 
 
+class SamplesTestMommy(TestCase):
+    def test_unicode(self):
+        o = mommy.make(Samples)
+        self.assertTrue(isinstance(o, Samples))
+        self.assertEquals(o.__unicode__(), u'mip|sample: {}|{}'.format(o.mip_fk.mip_id, o.sample_fk.sample_id))
+
+
 class ParalogTest(TestCase):
     def setUp(self):
         o = Paralog.objects.create(mip_fk=Mip.objects.create(mip_id=1, mip_start=1, mip_stop=2),
@@ -77,3 +113,12 @@ class ParalogTest(TestCase):
         o = Paralog.objects.get(mip_fk=Mip.objects.get(mip_id=1), subspecies_fk=Subspecies.objects.get(subspecies='LV'))
         self.assertTrue(isinstance(o, Paralog))
         self.assertEquals(o.__unicode__(), u'mip|subspecies|paralog: 1|LV|par')
+
+
+class ParalogTestMommy(TestCase):
+    def test_unicode(self):
+        o = mommy.make(Paralog)
+        self.assertTrue(isinstance(o, Paralog))
+        self.assertEquals(o.__unicode__(),
+                          u'mip|subspecies|paralog: {}|{}|{}'.format(o.mip_fk.mip_id, o.subspecies_fk.subspecies,
+                                                                     o.mip_subspecies_paralog))
