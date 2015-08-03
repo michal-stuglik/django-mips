@@ -58,3 +58,5 @@ target/
 
 mips/dbsettings_production.py
 mips/migrations
+
+.idea
