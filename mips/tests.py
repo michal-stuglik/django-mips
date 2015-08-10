@@ -13,112 +13,91 @@ from model_mommy import mommy
 from models import Mip, Instance, Subspecies, SampleSubspecies, Samples, Paralog
 
 
-class MipTest(TestCase):
-    def setUp(self):
-        o = Mip.objects.create(mip_id=1, mip_start=1, mip_stop=2)
-
-    def test_unicode(self):
-        mip1 = Mip.objects.get(mip_id=1)
-        self.assertTrue(isinstance(mip1, Mip))
-        self.assertEqual(mip1.__unicode__(), u'1')
+# class MipTest(TestCase):
+#     def setUp(self):
+#         o = Mip.objects.create(mip_id=1, mip_start=1, mip_stop=2)
+#
+#     def test_unicode(self):
+#         mip1 = Mip.objects.get(mip_id=1)
+#         self.assertTrue(isinstance(mip1, Mip))
+#         self.assertEqual(mip1.__unicode__(), u'1')
 
 
 class MipTestMommy(TestCase):
-    def test_unicode(self):
-        mip1 = mommy.make(Mip)
-        self.assertTrue(isinstance(mip1, Mip))
-        self.assertEqual(mip1.__unicode__(), u'%s' % mip1.mip_id)
-
-
-class InstanceTest(TestCase):
     def setUp(self):
-        m = Mip.objects.create(mip_id=1, mip_start=1, mip_stop=2)
-        o = Instance.objects.create(mip_fk=m, mip_pool=1, mip_instance=1, mip_production_data=datetime.datetime.now())
+        self.o = mommy.make(Mip)
+
+    def tearDown(self):
+        self.o.delete()
 
     def test_unicode(self):
-        m = Mip.objects.get(mip_id=1)
-        o = Instance.objects.get(mip_fk=m, mip_instance=1)
-        self.assertEqual(o.__unicode__(), u'mip|mip_instance: 1|1')
+        # mip1 = mommy.make(Mip)
+        self.assertTrue(isinstance(self.o, Mip))
+        self.assertEqual(self.o.__unicode__(), u'%s' % self.o.mip_id)
 
 
 class InstanceTestMommy(TestCase):
-    def test_unicode(self):
-        o = mommy.make(Instance)
-        self.assertTrue(isinstance(o, Instance))
-        self.assertEqual(o.__unicode__(), u'mip|mip_instance: {}|{}'.format(o.mip_fk.mip_id, o.mip_instance))
-
-
-class SubspeciesTest(TestCase):
     def setUp(self):
-        o = Subspecies.objects.create(subspecies='LV')
+        self.o = mommy.make(Instance)
+
+    def tearDown(self):
+        self.o.delete()
 
     def test_unicode(self):
-        o = Subspecies.objects.get(subspecies="LV")
-        self.assertTrue(isinstance(o, Subspecies))
-        self.assertEqual(o.__unicode__(), u'LV')
+        # o = mommy.make(Instance)
+        self.assertTrue(isinstance(self.o, Instance))
+        self.assertEqual(self.o.__unicode__(),
+                         u'mip|mip_instance: {}|{}'.format(self.o.mip_fk.mip_id, self.o.mip_instance))
 
 
 class SubspeciesTestMommy(TestCase):
-    def test_unicode(self):
-        o = mommy.make(Subspecies)
-        self.assertTrue(isinstance(o, Subspecies))
-        self.assertEqual(o.__unicode__(), u'{}'.format(o.subspecies))
-
-
-class SampleSubspeciesTest(TestCase):
     def setUp(self):
-        o = Subspecies.objects.create(subspecies='LV')
-        sub = SampleSubspecies.objects.create(subspecies_fk=o, sample_id=1)
+        self.o = mommy.make(Subspecies)
+
+    def tearDown(self):
+        self.o.delete()
 
     def test_unicode(self):
-        sub = SampleSubspecies.objects.get(sample_id=1)
-        self.assertTrue(isinstance(sub, SampleSubspecies))
-        self.assertEqual(sub.__unicode__(), u'1')
+        # o = mommy.make(Subspecies)
+        self.assertTrue(isinstance(self.o, Subspecies))
+        self.assertEqual(self.o.__unicode__(), u'{}'.format(self.o.subspecies))
 
 
 class SampleSubspeciesMommy(TestCase):
+    def setUp(self):
+        self.o = mommy.make(SampleSubspecies)
+
+    def tearDown(self):
+        self.o.delete()
+
     def test_unicode(self):
-        sub = mommy.make(SampleSubspecies)
-        self.assertTrue(isinstance(sub, SampleSubspecies))
-        self.assertEqual(sub.__unicode__(), u'{}'.format(sub.sample_id))
+        self.assertTrue(isinstance(self.o, SampleSubspecies))
+        self.assertEqual(self.o.__unicode__(), u'{}'.format(self.o.sample_id))
 
 
 class SamplesTest(TestCase):
     def setUp(self):
-        o = Samples.objects.create(mip_fk=Mip.objects.create(mip_id=1, mip_start=1, mip_stop=2),
-                                   sample_fk=SampleSubspecies.objects.create(
-                                       subspecies_fk=Subspecies.objects.create(subspecies='LV'),
-                                       sample_id=1))
+        self.o = mommy.make(Samples)
+
+    def tearDown(self):
+        self.o.delete()
 
     def test_unicode(self):
-        o = Samples.objects.get(mip_fk=Mip.objects.get(mip_id=1, ), sample_fk=SampleSubspecies.objects.get(sample_id=1))
-        self.assertTrue(isinstance(o, Samples))
-        self.assertEquals(o.__unicode__(), u'mip|sample: 1|1')
-
-
-class SamplesTestMommy(TestCase):
-    def test_unicode(self):
-        o = mommy.make(Samples)
-        self.assertTrue(isinstance(o, Samples))
-        self.assertEquals(o.__unicode__(), u'mip|sample: {}|{}'.format(o.mip_fk.mip_id, o.sample_fk.sample_id))
-
-
-class ParalogTest(TestCase):
-    def setUp(self):
-        o = Paralog.objects.create(mip_fk=Mip.objects.create(mip_id=1, mip_start=1, mip_stop=2),
-                                   subspecies_fk=Subspecies.objects.create(subspecies='LV'),
-                                   mip_subspecies_paralog='par')
-
-    def test_unicode(self):
-        o = Paralog.objects.get(mip_fk=Mip.objects.get(mip_id=1), subspecies_fk=Subspecies.objects.get(subspecies='LV'))
-        self.assertTrue(isinstance(o, Paralog))
-        self.assertEquals(o.__unicode__(), u'mip|subspecies|paralog: 1|LV|par')
+        self.assertTrue(isinstance(self.o, Samples))
+        self.assertEquals(self.o.__unicode__(),
+                          u'mip|sample: {}|{}'.format(self.o.mip_fk.mip_id, self.o.sample_fk.sample_id))
 
 
 class ParalogTestMommy(TestCase):
+    def setUp(self):
+        self.o = mommy.make(Paralog)
+
+    def tearDown(self):
+        self.o.delete()
+
     def test_unicode(self):
-        o = mommy.make(Paralog)
-        self.assertTrue(isinstance(o, Paralog))
-        self.assertEquals(o.__unicode__(),
-                          u'mip|subspecies|paralog: {}|{}|{}'.format(o.mip_fk.mip_id, o.subspecies_fk.subspecies,
-                                                                     o.mip_subspecies_paralog))
+        self.assertTrue(isinstance(self.o, Paralog))
+        self.assertEquals(self.o.__unicode__(),
+                          u'mip|subspecies|paralog: {}|{}|{}'.format(self.o.mip_fk.mip_id,
+                                                                     self.o.subspecies_fk.subspecies,
+                                                                     self.o.mip_subspecies_paralog))
