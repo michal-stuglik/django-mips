@@ -38,14 +38,13 @@ MIDDLEWARE_CLASSES = (
 )
 
 DATABASES = dbsettings.DATABASES
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': dbsettings.DBNAME,
-#         'USER': dbsettings.USER,
-#         'PASSWORD': dbsettings.PASSWORD,
-#         'HOST': dbsettings.HOST
-#     }
-# }
 
+# # testing suit
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=mips',
+    '--cover-inclusive',
+    '--verbosity=2',
+]
