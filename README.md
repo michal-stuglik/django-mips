@@ -72,6 +72,7 @@ Download
 [![PyPI version](https://badge.fury.io/py/django-mips.svg)](http://badge.fury.io/py/django-mips)
 [![Code Health](https://landscape.io/github/michal-stuglik/django-mips/master/landscape.svg?style=flat)](https://landscape.io/github/michal-stuglik/django-mips/master)
 [![Build Status](https://travis-ci.org/michal-stuglik/django-mips.svg?branch=master)](https://travis-ci.org/michal-stuglik/django-mips)
+[![Code Climate](https://codeclimate.com/github/michal-stuglik/django-mips/badges/gpa.svg)](https://codeclimate.com/github/michal-stuglik/django-mips)
 
     https://pypi.python.org/pypi/django-mips
 
