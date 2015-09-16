@@ -9,11 +9,11 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-mips',
-    version='0.1.0',
+    version='0.2.0',
     packages=['mips'],
     include_package_data=True,
     license='MIT License',
-    description='A simple Django app to store and process Mip molecular markers.',
+    description='A simple API (build on top of the Django Model API) to store and manage MIP (molecular inversion probe) markers.',
     long_description=README,
     url='https://github.com/michal-stuglik/django-mips',
     author='Michal Stuglik',
