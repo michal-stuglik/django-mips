@@ -5,7 +5,7 @@ include CONTRIBUTING.rst
 include manage.py
 include requirements.txt
 
-include README.rst
+include README.md
 
 recursive-include mips *
 recursive-include docs/build/html *

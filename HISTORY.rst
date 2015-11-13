@@ -3,6 +3,10 @@
 History
 =======
 
+0.3.0
+-----
+* New field in model
+
 
 0.1.0
 -----
