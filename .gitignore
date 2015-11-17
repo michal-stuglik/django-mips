@@ -58,6 +58,6 @@ docs/_build/
 target/
 
 mips/dbsettings_production.py
-mips/migrations
+# mips/migrations
 
 .idea

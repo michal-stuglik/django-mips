@@ -20,7 +20,7 @@ class Mip(models.Model):
     mip_stop = models.IntegerField()
     reference_id = models.TextField(null=True)
     mip_comments = models.TextField(null=True)
-    reference_gene_name = models.TextField()
+    reference_gene_name = models.TextField(null=True)
 
     def __unicode__(self):
         return u'{}'.format(self.mip_id)
