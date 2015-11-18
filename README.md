@@ -84,11 +84,10 @@ Download
 
 #### with pip (recommended)
 
-Install with pip
+Install with pip (you will find mips folder in your local Python directory )
 
     pip install django-mips
-	you will find mips folder in your Python directory 
-
+	
 
 Setup
 -----
