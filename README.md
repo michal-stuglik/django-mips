@@ -88,6 +88,10 @@ Install with pip (you will find mips folder in your local Python directory )
 
     pip install django-mips
 	
+Install required modules
+
+    cd django-mips/
+    pip install -r requirements.txt
 
 Setup
 -----
