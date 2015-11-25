@@ -93,6 +93,23 @@ Install required modules
     cd django-mips/
     pip install -r requirements.txt
 
+
+Upgrade
+-------
+
+#### with git
+
+    cd django-mips/
+    git pull
+    pip install -r requirements.txt
+    
+#### with pip
+
+    pip install -django-mips --upgrade
+    cd django-mips/
+    pip install -r requirements.txt
+
+
 Setup
 -----
 
