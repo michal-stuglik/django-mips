@@ -80,6 +80,8 @@ Download
 #### source code
 
     $ git clone https://github.com/michal-stuglik/django-mips.git
+    or
+    https://github.com/michal-stuglik/django-mips/archive/master.zip
 
 
 #### with pip (recommended)
