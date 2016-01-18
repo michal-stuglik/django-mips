@@ -23,9 +23,9 @@ Linux
 
 #### download source code & go into it
 
-    $ git clone https://github.com/michal-stuglik/django-mips.git
+    git clone https://github.com/michal-stuglik/django-mips.git
     or
-    $ wget https://github.com/michal-stuglik/django-mips/archive/master.zip
+    wget https://github.com/michal-stuglik/django-mips/archive/master.zip
 
 
 #### install django-mips, set virtual environment & requirements
@@ -50,22 +50,45 @@ TODO: Windows
 
 
 
-Setup
+Setup & usage
 -----
 
 #### outside Django project, in python scripts:
 
 
-*   set database connection details in mips.dbsettings\_default.py
-*   set the DJANGO\_SETTINGS\_MODULE environment variable to “mips.settings”
+make sure you have correct database connection details in mips.dbsettings\_default.py
 
+```
+DBNAME = ''  # database-name-on-the-host
+USER = ''  # user-name
+PASSWORD = ''  # set database-password
+HOST = 'xxx.xxx.xxx.xxx'  # set host IP address
+SECRET_KEY = 'set-secret-key-here'  # set-secret-key-here
+
+```
+
+go to project directory and load python modules from virtualenv (VE)
+
+```
+    source .venv/bin/activate
+```
+
+
+##### In python
+
+set the DJANGO\_SETTINGS\_MODULE environment variable to “mips.settings”
+
+```
     import os
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
+```
 
-*   set up Django: django.setup()
+set up Django
 
+```
     import django
     django.setup()
+```
 
 Examples
 --------
