@@ -17,7 +17,8 @@ mip_table_input_schema = ["MIP_ID", "MIP_sequence", "MIP_extension_arm", "MIP_li
                           "MIP_function_mapping", "MIP_function_random", "MIP_function_UTR", "Reference_ID",
                           "MIP_start",
                           "MIP_stop",
-                          "Comments"
+                          "Comments",
+                          "Reference_gene_name"
                           ]
 
 subspecies_input_schema = ["Subspecies"]
@@ -87,6 +88,7 @@ def load_mips(file_path):
             mip_start = row_as_list[9]
             mip_stop = row_as_list[10]
             mip_comments = str(row_as_list[11]).strip()
+            reference_gene_name = row_as_list[12]
 
             # database writer
             obj, created = Mip.objects.update_or_create(mip_id=mip_id, defaults={'mip_sequence': mip_sequence,
@@ -99,7 +101,8 @@ def load_mips(file_path):
                                                                                  'reference_id': reference_id,
                                                                                  'mip_start': mip_start,
                                                                                  'mip_stop': mip_stop,
-                                                                                 'mip_comments': mip_comments}
+                                                                                 'mip_comments': mip_comments,
+                                                                                 'reference_gene_name': reference_gene_name}
                                                         )
 
             if obj:
