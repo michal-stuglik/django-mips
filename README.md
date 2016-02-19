@@ -24,25 +24,25 @@ sudo pip install --upgrade virtualenv
 ```
 
 #### download source code & go into it
-
-    git clone https://github.com/michal-stuglik/django-mips.git
-    or
-    wget https://github.com/michal-stuglik/django-mips/archive/master.zip
-
+```bash
+git clone https://github.com/michal-stuglik/django-mips.git
+# or
+wget https://github.com/michal-stuglik/django-mips/archive/master.zip
+```
 
 #### install django-mips, set virtual environment & requirements
-
-    cd django-mips/
+```bash
+cd django-mips/
     
-    # set isolated virtual environment (VE)
-    virtualenv .venv
+# set isolated virtual environment (VE)
+virtualenv .venv
     
-    # source it
-    source .venv/bin/activate
+# source it
+source .venv/bin/activate
 
-    # install required apps within VE
-    pip install -r requirements.txt
-
+# install required apps within VE
+pip install -r requirements.txt
+```
 
 TODO: Windows
 -------------
