@@ -15,11 +15,13 @@ Linux
 
 #### apps for Python environment (ubuntu)
 
-    sudo apt-get install python-pip python-dev build-essential libpq-dev python-virtualenv
+```bash
+sudo apt-get install python-pip python-dev build-essential libpq-dev python-virtualenv
     
-    optional:
-    sudo pip install --upgrade pip
-    sudo pip install --upgrade virtualenv  
+# optional:
+sudo pip install --upgrade pip
+sudo pip install --upgrade virtualenv  
+```
 
 #### download source code & go into it
 
