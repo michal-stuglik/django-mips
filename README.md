@@ -69,8 +69,8 @@ SECRET_KEY = 'set-secret-key-here'  # set-secret-key-here
 
 go to project directory and load python modules from virtualenv (VE)
 
-```
-    source .venv/bin/activate
+```python
+source .venv/bin/activate
 ```
 
 
@@ -78,16 +78,16 @@ go to project directory and load python modules from virtualenv (VE)
 
 set the DJANGO\_SETTINGS\_MODULE environment variable to “mips.settings”
 
-```
-    import os
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
+```python
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mips.settings")
 ```
 
 set up Django
 
-```
-    import django
-    django.setup()
+```python
+import django
+django.setup()
 ```
 
 Examples
