@@ -98,8 +98,8 @@ Examples
 [scripts & README]
 
   [get-pip.py]: https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-  [image]: https://pypip.in/v/django-mips/badge.png
-  [1]: https://pypip.in/d/django-mips/badge.png
+  [image]: https://img.shields.io/pypi/v/django-mips.svg
+  [1]: https://img.shields.io/pypi/dm/django-mips.svg
   [scripts & README]: https://github.com/michal-stuglik/django-mips/tree/master/mips/example
   [psycopg2]: http://stickpeople.com/projects/python/win-psycopg/2.6.0/psycopg2-2.6.0.win32-py2.7-pg9.4.1-release.exe
   [pythonwin]: https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi
@@ -247,8 +247,8 @@ Examples
 [scripts & README]
 
   [get-pip.py]: https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-  [image]: https://pypip.in/v/django-mips/badge.png
-  [1]: https://pypip.in/d/django-mips/badge.png
+  [image]: https://img.shields.io/pypi/v/django-mips.svg
+  [1]: https://img.shields.io/pypi/dm/django-mips.svg
   [scripts & README]: https://github.com/michal-stuglik/django-mips/tree/master/mips/example
   [psycopg2]: http://stickpeople.com/projects/python/win-psycopg/2.6.0/psycopg2-2.6.0.win32-py2.7-pg9.4.1-release.exe
   [pythonwin]: https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi
