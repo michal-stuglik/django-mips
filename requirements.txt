@@ -1,4 +1,4 @@
-django>=1.7,<=1.8.8
+django>=1.11.18
 psycopg2
 nose
 django-nose
